@@ -41,7 +41,7 @@ public class MainActivity extends ActionBarActivity {
         Intent a=new Intent(this,QuestionActivity.class);
         Bundle obj = new Bundle();
         obj.putInt("Level",1);
-        a.putExtra("Level",obj);
+        a.putExtras(obj);
         startActivity(a);
     }
 }

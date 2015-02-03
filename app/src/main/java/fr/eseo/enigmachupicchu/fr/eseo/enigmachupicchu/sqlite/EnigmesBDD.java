@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Created by 'Dim on 02/02/2015.
  */
 public class EnigmesBDD {
-    private static final int VERSION_BDD = 5;
+    private static final int VERSION_BDD = 6;
     private static final String NOM_BDD = "enigmachupicchu.db";
 
     private static final String TABLE_ENIGMES = "table_enigmes";
@@ -119,4 +119,30 @@ public class EnigmesBDD {
         //On retourne l'énigme
         return enigme;
     }
+
+    public  ArrayList<Enigme> fenigmes(Cursor curs){
+       ArrayList<Enigme> enigmes= new ArrayList<Enigme>();
+        Enigme enigme= new Enigme();
+        while (curs.moveToNext()){
+             enigme = new Enigme();
+            //on lui affecte toutes les infos grâce aux infos contenues dans le Cursor
+            enigme.setId(curs.getInt(NUM_COL_ID));
+            enigme.setTitre(curs.getString(NUM_COL_TITRE));
+            enigme.setEnonce(curs.getString(NUM_COL_ENONCE));
+            enigme.setSolution(curs.getString(NUM_COL_SOLUTION));
+            enigme.setDifficulte(curs.getInt(NUM_COL_DIFFICULTE));
+            enigme.setResolue(curs.getInt(NUM_COL_RESOLUE));
+            enigmes.add(enigme);
+        }
+        curs.close();
+        return enigmes;
+    }
+
+    public Cursor enigmes(int difficulte){
+        Cursor res;
+       res= bdd.query(TABLE_ENIGMES, new String[] {COL_ID, COL_TITRE, COL_ENONCE, COL_SOLUTION, COL_DIFFICULTE, COL_RESOLUE},COL_DIFFICULTE + " = \"" + difficulte +"\"", null, null, null, null);
+       return res;
+    }
+
+
 }

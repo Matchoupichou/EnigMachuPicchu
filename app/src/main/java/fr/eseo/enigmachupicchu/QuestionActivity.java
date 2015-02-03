@@ -1,16 +1,25 @@
 package fr.eseo.enigmachupicchu;
 
+import android.app.Activity;
+import android.app.ListActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
+import java.util.ArrayList;
 
-public class QuestionActivity extends ActionBarActivity {
+import fr.eseo.enigmachupicchu.fr.eseo.enigmachupicchu.sqlite.Enigme;
+import fr.eseo.enigmachupicchu.fr.eseo.enigmachupicchu.sqlite.EnigmesBDD;
+
+public class QuestionActivity extends  Activity {
 
     public int level;
-
+    ArrayAdapter<String> adapter;
+    ArrayList<String> listItems=new ArrayList<String>();
     public QuestionActivity(){
     }
 
@@ -20,30 +29,24 @@ public class QuestionActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+        Bundle ob=this.getIntent().getExtras();
+        int numeroLevel=ob.getInt("Level");
+       // System.out.println("je suis le level"+numeroLevel);
+        EnigmesBDD bdd=new  EnigmesBDD(this);
+        ArrayList<Enigme> enigmes=bdd.fenigmes(bdd.enigmes(numeroLevel));
+        //int id=R.id.listeTitres;
+        //this.adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,this.titreEnigmes(enigmes));
+       // Toast.makeText(this,"je sus le level : "+numeroLevel,Toast.LENGTH_LONG).show();
+      //setListAdapter(adapter);
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_question, menu);
-        //TextView text=(TextView)findViewById(R.id.test);
-        //text.setText("level1");
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    public ArrayList<String> titreEnigmes(ArrayList<Enigme> enigmes){
+        ArrayList<String> titres=new ArrayList<String>();
+        for(int k=0;k<enigmes.size();k++){
+           titres.add(enigmes.get(k).getTitre());
+       }
+        return titres;
     }
 }

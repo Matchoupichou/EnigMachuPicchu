@@ -27,8 +27,8 @@ public class QuestionActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_question, menu);
-        TextView text=(TextView)findViewById(R.id.test);
-        text.setText("level1");
+        //TextView text=(TextView)findViewById(R.id.test);
+        //text.setText("level1");
         return true;
     }
 

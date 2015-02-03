@@ -4,21 +4,31 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.content.Intent;
-import android.view.View;
-public class MainActivity extends ActionBarActivity {
+import android.widget.TextView;
+
+
+public class QuestionActivity extends ActionBarActivity {
+
+    public int level;
+
+    public QuestionActivity(){
+    }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_question);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_question, menu);
+        TextView text=(TextView)findViewById(R.id.test);
+        text.setText("level1");
         return true;
     }
 
@@ -35,13 +45,5 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void executeLevel1(View view){
-        Intent a=new Intent(this,QuestionActivity.class);
-        Bundle obj = new Bundle();
-        obj.putInt("Level",1);
-        a.putExtra("Level",obj);
-        startActivity(a);
     }
 }

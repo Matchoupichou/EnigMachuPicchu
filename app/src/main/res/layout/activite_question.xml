@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            xmlns:android="http://schemas.android.com/apk/res/android">
+            <!-- xmlns:tools="http://schemas.android.com/tools"
+            tools:context=".ActiviteQuestion"> -->
+
+            <!-- Titre -->
+            <TextView android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="center"
+                android:textColor="#ff01c625"
+                android:textStyle="bold"
+                android:text="Titre.."
+                android:textSize="28sp"
+                android:id="@+id/titreQ"/>
+
+            <!-- Enonce -->
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:text="Enoncé.. "
+                android:textColor="#ff169aff"
+                android:textSize="22sp"
+                android:id="@+id/enonceQ"/>
+
+            <!-- Barre de texte editable -->
+            <EditText
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:id="@+id/reponseUtilisateurQ"
+                android:lines="5"
+                android:inputType="textMultiLine"
+                android:hint="@string/editText"/>
+
+            <!-- Bouton Valider -->
+            <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:gravity="center" android:text="Valider" android:id="@+id/validerQ"/>
+
+            <!-- Affichage Resultat -->
+            <TextView android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="\n \n Résultat : "
+                android:textSize="22sp"
+                android:textColor="#ff006b0a"/>
+
+            <!-- Affichage Resultat -->
+            <TextView android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:text="Votre réponse.."
+                android:id="@+id/resultatQ"/>
+
+            <ImageView
+                android:contentDescription="row"
+                android:id="@+id/imageQ"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                >
+            </ImageView>
+
+        </LinearLayout>
+
+</ScrollView>

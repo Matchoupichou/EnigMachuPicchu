@@ -6,14 +6,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
 import android.view.View;
+
 public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+       // FillDataBase.exec(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -38,9 +39,25 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void executeLevel1(View view){
-        Intent a=new Intent(this,QuestionActivity.class);
+        Intent a=new Intent(this,ActivityDifficulte.class);
         Bundle obj = new Bundle();
         obj.putInt("Level",1);
+        a.putExtras(obj);
+        startActivity(a);
+    }
+
+    public void executeLevel2(View view){
+        Intent a=new Intent(this,ActivityDifficulte.class);
+        Bundle obj = new Bundle();
+        obj.putInt("Level",2);
+        a.putExtras(obj);
+        startActivity(a);
+    }
+
+    public void executeLevel3(View view){
+        Intent a=new Intent(this,ActivityDifficulte.class);
+        Bundle obj = new Bundle();
+        obj.putInt("Level",3);
         a.putExtras(obj);
         startActivity(a);
     }

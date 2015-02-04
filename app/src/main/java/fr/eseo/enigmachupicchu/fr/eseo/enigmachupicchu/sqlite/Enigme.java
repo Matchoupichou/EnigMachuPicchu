@@ -21,6 +21,15 @@ public class Enigme {
         this.resolue = 0;
     }
 
+    public Enigme(String titre, String enonce, String solution, int difficulte){
+        this.titre = titre;
+        this.enonce = enonce;
+        this.solution = solution;
+        this.difficulte = difficulte;
+        this.resolue = 0;
+    }
+
+
     public Enigme(String titre, String enonce, String solution, int difficulte, int resolue){
         this.titre = titre;
         this.enonce = enonce;
@@ -45,7 +54,7 @@ public class Enigme {
     public void setDifficulte(int difficulte){ this.difficulte = difficulte; }
 
     public int getResolue() { return this.resolue; }
-    public void setResolue(int id){ this.resolue = resolue; }
+    public void setResolue(int resolue){ this.resolue = resolue; }
 
     public String toString()
     {

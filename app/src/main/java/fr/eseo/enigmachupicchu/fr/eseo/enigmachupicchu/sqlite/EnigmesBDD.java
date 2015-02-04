@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Created by 'Dim on 02/02/2015.
  */
 public class EnigmesBDD {
-    private static final int VERSION_BDD = 6;
+    private static final int VERSION_BDD = 11;
     private static final String NOM_BDD = "enigmachupicchu.db";
 
     private static final String TABLE_ENIGMES = "table_enigmes";

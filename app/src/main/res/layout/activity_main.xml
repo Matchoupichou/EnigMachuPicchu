@@ -33,14 +33,18 @@
                 android:layout_height="wrap_content"
                 android:text="Level 2"
                 android:id="@+id/button2"
-                android:layout_weight="0.04" />
+                android:layout_weight="0.04"
+                android:onClick="executeLevel2"
+                />
 
             <Button
                 android:layout_width="362dp"
                 android:layout_height="wrap_content"
                 android:text="Level 3"
                 android:id="@+id/button3"
-                android:layout_weight="0.04" />
+                android:layout_weight="0.04"
+                android:onClick="executeLevel3"
+                />
         </LinearLayout>
     </FrameLayout>
 </RelativeLayout>
